@@ -1,0 +1,88 @@
+/* General reset for nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: transparent; /* Transparent for overlaying hero */
+  position: absolute; /* To place it over the hero section */
+  width: 100%;
+  z-index: 100; /* Ensures it stays on top of other elements */
+  box-sizing: border-box;
+}
+
+/* Logo styling */
+.nav-logo img {
+  height: 50px; /* Adjust as needed */
+  width: auto;
+  transition: transform 0.3s ease-in-out; /* Smooth scaling animation */
+}
+
+.nav-logo img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Menu styling */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Space between menu items */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white; /* White for contrast on a hero section */
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.nav-item a:hover {
+  color: #f0db4f; /* Highlight color */
+}
+
+/* Underline hover effect */
+.nav-item a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #f0db4f; /* Highlight color */
+  transition: width 0.3s ease-in-out;
+  position: absolute;
+  bottom: -5px; /* Position slightly below the text */
+  left: 0;
+}
+
+.nav-item a:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-logo {
+    margin-bottom: 1rem;
+  }
+}

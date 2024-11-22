@@ -1,0 +1,81 @@
+/* Set height for carousel items */
+.carousel-item {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.1); /* Fallback for missing images */
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* Center the caption in the middle of the image */
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background for readability */
+  padding: 20px 30px;
+  border-radius: 10px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Styling for headings and paragraphs */
+.carousel-caption h5 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  animation: slideDown 1.2s ease-in-out;
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Button styles for carousel controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Make icons white */
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-caption h5 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+}
