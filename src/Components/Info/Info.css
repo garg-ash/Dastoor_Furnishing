@@ -1,43 +1,89 @@
 /* Container styling */
+.infoheading {
+  position: relative;
+}
+
 .infoheading h3 {
   text-align: center;
-  margin-top: 30px;
+  color: black;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInOnScroll 1.5s ease-in-out forwards;
+  margin-left: 40vw;
+}
+
+/* First and second back boxes positioning */
+.first-back-box {
+  height: 70vh;
+  width: 30%;
+  background-color: #b0b796;
+  position: absolute;
+  top: 25%;
+  right: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0;
+  animation: slideInRightOnScroll 2.2s ease-out forwards;
+  border-radius: 10px;
+}
+
+.second-back-box {
+  height: 70vh;
+  width: 40%;
+  background-color: #d9d9d9;
+  position: absolute;
+  top: -20%;
+  left: -60%;
+  transform: translateY(-50%);
+  z-index: 2;
+  opacity: 0;
+  animation: slideInLeftOnScroll 2.5s ease-out forwards;
+  border-radius: 10px;
 }
 
 .furniture_information {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  gap: 3rem;
-  background-color: #f9f9f9;
+  justify-content: center;
+  margin: 30px 0;
 }
 
-/* Left section: Image styling */
+/* Image styling */
 .furniture_information_left img {
-  width: 100%;
+  width: 80%;
   max-width: 800px;
   height: 90vh;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: slideInLeft 1s ease-out; /* Slide-in animation */
+  position: relative;
+  z-index: 3;
+  transform: translateY(-50%);
+  margin: auto;
+  opacity: 0;
+  animation: zoomInOnScroll 2s ease-in-out forwards;
 }
 
 .furniture_information_left img:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Right section: Text styling */
+/* Text styling */
 .furniture_information_right {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: fadeInUp 1.2s ease-in-out; /* Fade-in and slide-up animation */
+  opacity: 0;
+  animation: fadeInUpOnScroll 1.8s ease-in-out forwards;
+  position: relative;
+  z-index: 4;
+  margin-left: 40px;
 }
 
 .furniture_information_right h2 {
@@ -49,21 +95,8 @@
 }
 
 .furniture_information_right h2:hover {
-  color: #f0db4f;
+  color: #b0b796;
   transform: translateY(-5px);
-}
-
-.furniture_information_right p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-  text-align: justify;
-  transition: transform 0.3s ease;
-  animation: fadeInUp 1.5s ease-in-out; /* Fade-in and slide-up animation */
-}
-
-.furniture_information_right p:hover {
-  transform: scale(1.02); /* Slight zoom effect */
 }
 
 /* Responsive Design */
@@ -74,22 +107,30 @@
     gap: 1rem;
   }
 
+  .first-back-box,
+  .second-back-box {
+    width: 80%;
+    height: 50vh;
+    left: auto;
+    right: auto;
+    margin: auto;
+    transform: translateY(0);
+    animation: none;
+  }
+
   .furniture_information_left img {
     max-width: 100%;
-    animation: slideInUp 1s ease-out; /* Adjusted for mobile view */
+    height: auto;
+    animation: fadeIn 1s ease-out; 
   }
 
   .furniture_information_right h2 {
     font-size: 1.5rem;
   }
-
-  .furniture_information_right p {
-    font-size: 0.9rem;
-  }
 }
 
-/* Keyframes for animations */
-@keyframes fadeIn {
+/* Keyframes for scroll-triggered animations */
+@keyframes fadeInOnScroll {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -100,7 +141,7 @@
   }
 }
 
-@keyframes fadeInUp {
+@keyframes fadeInUpOnScroll {
   0% {
     opacity: 0;
     transform: translateY(30px);
@@ -111,7 +152,7 @@
   }
 }
 
-@keyframes slideInLeft {
+@keyframes slideInLeftOnScroll {
   0% {
     opacity: 0;
     transform: translateX(-50px);
@@ -122,13 +163,24 @@
   }
 }
 
-@keyframes slideInUp {
+@keyframes slideInRightOnScroll {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateX(50px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomInOnScroll {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

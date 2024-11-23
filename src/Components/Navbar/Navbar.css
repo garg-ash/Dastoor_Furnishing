@@ -13,7 +13,7 @@ nav {
 
 /* Logo styling */
 .nav-logo img {
-  height: 50px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
   width: auto;
   transition: transform 0.3s ease-in-out; /* Smooth scaling animation */
 }
@@ -25,7 +25,7 @@ nav {
 /* Menu styling */
 .nav-menu {
   display: flex;
-  align-items: center;
+  align-items: self-start;
 }
 
 .nav-list {
@@ -34,6 +34,7 @@ nav {
   gap: 2rem; /* Space between menu items */
   margin: 0;
   padding: 0;
+  align-items: flex-start;
 }
 
 .nav-item {
@@ -50,7 +51,7 @@ nav {
 }
 
 .nav-item a:hover {
-  color: #f0db4f; /* Highlight color */
+  color: #b0b796; /* Highlight color */
 }
 
 /* Underline hover effect */
@@ -59,7 +60,7 @@ nav {
   display: block;
   width: 0;
   height: 2px;
-  background: #f0db4f; /* Highlight color */
+  background: #b0b796; /* Highlight color */
   transition: width 0.3s ease-in-out;
   position: absolute;
   bottom: -5px; /* Position slightly below the text */
