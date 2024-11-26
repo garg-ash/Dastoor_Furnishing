@@ -80,7 +80,7 @@
   flex-direction: column;
   justify-content: center;
   opacity: 0;
-  animation: fadeInUpOnScroll 1.8s ease-in-out forwards;
+  animation: fadeInUpOnScroll 3s ease-in-out forwards;
   position: relative;
   z-index: 4;
   margin-left: 40px;
