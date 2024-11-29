@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Testimonials.css"; // Use your existing CSS file
+import "./Testimonials.css";
 
 const testimonialsData = [
   {
@@ -30,25 +30,46 @@ const testimonialsData = [
       "The display units I purchased work perfectly in my store. The sleek design enhances the presentation of my products.",
     image: "https://via.placeholder.com/100",
   },
+  {
+    name: "Michael Lee",
+    role: "Architect",
+    feedback:
+      "The modular furniture system is a game-changer. It perfectly fits into the spaces I design for my clients.",
+    image: "https://via.placeholder.com/100",
+  },
 ];
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const testimonialsPerPage = 3;
+  const totalTestimonials = testimonialsData.length;
+
   // Handlers for navigation
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1
+      (prevIndex + testimonialsPerPage) % totalTestimonials
     );
   };
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonialsData.length - 1 : prevIndex - 1
+      (prevIndex - testimonialsPerPage + totalTestimonials) % totalTestimonials
     );
   };
 
-  const currentTestimonial = testimonialsData[currentIndex];
+  // Get testimonials to display
+  const visibleTestimonials = testimonialsData.slice(
+    currentIndex,
+    currentIndex + testimonialsPerPage
+  );
+
+  // Wrap around when reaching the end
+  if (visibleTestimonials.length < testimonialsPerPage) {
+    visibleTestimonials.push(
+      ...testimonialsData.slice(0, testimonialsPerPage - visibleTestimonials.length)
+    );
+  }
 
   return (
     <div className="testimonials">
@@ -59,18 +80,22 @@ const Testimonials = () => {
           &#8249;
         </button>
 
-        {/* Single Testimonial */}
-        <div className="testimonial-item">
-          <img
-            className="testimonial-image"
-            src={currentTestimonial.image}
-            alt={currentTestimonial.name}
-          />
-          <div className="testimonial-content">
-            <p className="testimonial-feedback">"{currentTestimonial.feedback}"</p>
-            <p className="testimonial-name">- {currentTestimonial.name}</p>
-            <p className="testimonial-role">{currentTestimonial.role}</p>
-          </div>
+        {/* Display Testimonials */}
+        <div className="testimonial-items">
+          {visibleTestimonials.map((testimonial, index) => (
+            <div key={index} className="testimonial-item">
+              <img
+                className="testimonial-image"
+                src={testimonial.image}
+                alt={testimonial.name}
+              />
+              <div className="testimonial-content">
+                <p className="testimonial-feedback">"{testimonial.feedback}"</p>
+                <p className="testimonial-name">- {testimonial.name}</p>
+                <p className="testimonial-role">{testimonial.role}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Right Arrow */}

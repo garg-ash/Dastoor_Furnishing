@@ -1,101 +1,114 @@
-/* Testimonials Section */
+/* Add animation keyframes */
+@keyframes rollIn {
+  0% {
+    transform: translateX(-100%) rotate(-120deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rollOut {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotate(120deg);
+    opacity: 0;
+  }
+}
+
+/* Testimonials Container */
 .testimonials {
-  padding: 3rem 1rem;
-  background-color: #f9f9f9;
   text-align: center;
-  background-image: url('../Assets/testimonial_bg.jpg');
+  padding: 2rem;
+  background-color: #f9f9f9;
+  background-image: url('../Assets//testimonial_bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
 }
 
-/* Heading Styling */
 .testimonials-heading {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
-  letter-spacing: 1px;
-  text-align: center;
+  color: black;
 }
 
-/* Testimonial Wrapper */
 .testimonial-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
+  overflow: hidden;
 }
 
-/* Testimonial Item */
+/* Testimonial Items Container */
+.testimonial-items {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  justify-content: center;
+}
+
 .testimonial-item {
-  background-color: #b2bc9a;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  max-width: 400px;
-  width: 100%;
-  padding: 2rem;
+  flex: 1 1 30%;
+  padding: 1rem;
   text-align: center;
-  margin-left: 60%;
-  animation: name duration timing-function delay iteration-count direction fill-mode;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Initially hidden */
+  animation: rollIn 0.8s ease-in-out forwards; /* Apply animation on load */
 }
 
-/* Image Styling */
+.testimonial-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Transition for dynamic roll-out (optional) */
+.testimonial-item.roll-out {
+  animation: rollOut 0.8s ease-in-out forwards;
+}
+
 .testimonial-image {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  object-fit: cover;
   margin-bottom: 1rem;
 }
 
-/* Feedback Text */
 .testimonial-feedback {
-  font-size: 1.2rem;
-  color: white;
-  margin-bottom: 1rem;
   font-style: italic;
+  margin-bottom: 0.5rem;
 }
 
-/* Name and Role */
 .testimonial-name {
   font-weight: bold;
-  color: white;
   margin-bottom: 0.3rem;
 }
 
-.testimonial-role {
-  font-size: 0.9rem;
-  color: white;
-}
-
-/* Arrows */
 .arrow {
-  background-color: #333;
-  color: #fff;
+  background: none;
   border: none;
-  border-radius: 50%;
   font-size: 2rem;
-  width: 50px;
-  height: 50px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.left-arrow {
-  left: 60%;
-}
-
-.right-arrow {
-  right: 10px;
+  color: #333;
+  transition: transform 0.3s ease;
 }
 
 .arrow:hover {
-  background-color: #555;
+  transform: scale(1.2);
+}
+
+.left-arrow {
+  margin-right: 1rem;
+}
+
+.right-arrow {
+  margin-left: 1rem;
 }

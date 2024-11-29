@@ -6,7 +6,7 @@
 
 footer {
     width: 100%;
-    background-color: #d8d8d8;
+    background-color: #F1F0E8;
     color: #fff;
     padding: 40px 20px;
     display: flex;
@@ -62,7 +62,7 @@ footer div {
 h3 {
     margin-bottom: 20px;
     font-size: 18px;
-    color: #b0b796;
+    color: black;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-bottom: 2px solid #b0b796;

@@ -7,7 +7,7 @@
     width: 100%;
     /* height: 500px; */
     padding: 40px 0;
-    background-color: #b3bd9b;
+    /* background-color: #b3bd9b; */
 }
 
 .home-gallery {
@@ -16,7 +16,7 @@
 }
 .home-gallery h2 {
     text-align: center;
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 30px;
     text-transform: uppercase; 

@@ -45,14 +45,15 @@ nav {
 
 .nav-item a {
   text-decoration: none;
-  color: white; /* White for contrast on a hero section */
+  color: black; /* White for contrast on a hero section */
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
   position: relative;
+  font-size: 18px;
 }
 
-.nav-item a:hover {
-  color: #b0b796; /* Highlight color */
-}
+/* .nav-item a:hover {
+  color: #b0b796; 
+} */
 
 /* Underline hover effect */
 .nav-item a::after {
