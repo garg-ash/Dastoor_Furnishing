@@ -7,6 +7,7 @@ import GallaryHome from '../Components/GallaryHome/GallaryHome.jsx'
 import Footer from '../Components/Footer/Footer.jsx'
 import Testimonials from '../Components/Testimonials/Testimonials.jsx'
 import Projects from '../Components/Projects/Projects.jsx'
+import Feature from '../Components/Feature/Feature.jsx'
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
     <Info/>
     <GallaryHome />
     <Projects />
+    <Feature/>
     <Testimonials/>
     <Footer/>
     </>

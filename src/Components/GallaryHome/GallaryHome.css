@@ -1,60 +1,64 @@
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Gallery Section */
 .gallary {
     width: 100%;
-    /* height: 500px; */
     padding: 40px 0;
-    /* background-color: #b3bd9b; */
 }
 
 .home-gallery {
     padding: 20px;
     text-align: center;
 }
+
 .home-gallery h2 {
     text-align: center;
     color: black;
     font-weight: bold;
-    font-size: 30px;
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
+    font-size: 30px; /* Default for larger screens */
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: 20px;
-    animation: fadeIn 1.5s ease-in-out; 
+    animation: fadeIn 1.5s ease-in-out;
     position: relative;
-    overflow: hidden; 
-  }
-  
-  .home-gallery h2::after {
+    overflow: hidden;
+}
+
+.home-gallery h2::after {
     content: "";
     display: block;
     width: 0;
     height: 3px;
-    background-color: #d8d8d8; /* Highlight color for the underline */
+    background-color: #d8d8d8;
     margin: 0 auto;
     transition: width 0.5s ease;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-  }
-  
+}
+
 .home-gallery h2:hover::after {
-    width: 50%; 
-  }
-  
+    width: 50%;
+}
+
+/* Gallery Grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
     gap: 15px;
     margin-top: 20px;
 }
 
+/* Gallery Items */
 .gallery-item {
     width: 100%;
-    height: 300px;
+    height: 300px; /* Default for larger screens */
     border: 2px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -64,13 +68,12 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Animation on hover */
 .gallery-item:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Smooth image zoom on hover */
+/* Image Styling */
 .gallery-img {
     width: 100%;
     height: 100%;
@@ -83,7 +86,7 @@
     transform: scale(1.1);
 }
 
-/* Text in the gallery item */
+/* Text in Gallery Items */
 .gallery-item h5 {
     position: absolute;
     top: 50%;
@@ -97,17 +100,17 @@
     text-transform: uppercase;
 }
 
-/* Text appears with animation on hover */
 .gallery-item:hover h5 {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
-.gallery-item p{
+
+.gallery-item p {
     color: white;
-    font-size: 24px
+    font-size: 24px;
 }
 
-/* Keyframes for additional hover effect (optional) */
+/* Hover Animation */
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
@@ -120,13 +123,61 @@
 .gallery-item:hover {
     animation: pulse 1s infinite;
 }
+
+/* Fade-In Animation */
 @keyframes fadeIn {
     0% {
-      opacity: 0;
-      transform: translateY(20px);
+        opacity: 0;
+        transform: translateY(20px);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
+}
+
+/* Responsive Styles */
+
+/* Tablet Screens (768px to 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .gallery-item {
+        height: 250px; /* Adjust height for tablets */
+    }
+
+    .home-gallery h2 {
+        font-size: 25px; /* Smaller font size for tablets */
+    }
+
+    .gallery-grid {
+        gap: 10px; /* Reduced gap for tablets */
+    }
+
+    .gallery-item h5 {
+        font-size: medium;
+    }
+}
+
+/* Mobile Screens (Below 768px) */
+@media (max-width: 768px) {
+    .gallery-item {
+        height: 200px; /* Smaller height for mobile */
+    }
+
+    .home-gallery h2 {
+        font-size: 20px; /* Reduced font size for mobile */
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjusted for mobile */
+        gap: 8px; /* Smaller gap for mobile */
+    }
+
+    .gallery-item h5 {
+        font-size: small; /* Smaller text for mobile */
+    }
+
+    .gallery-item p {
+        font-size: 18px; /* Adjust font size for mobile */
+    }
+}
+    
